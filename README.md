@@ -1,7 +1,7 @@
 # ZDYlistView
 滑动listview标题置顶,标题可以置顶的listview,安卓系统状态栏透明,有图有源码
 
-实现功能
+##实现功能
 1，listview滑动置顶效果
 2，系统时间状态栏透明
 
@@ -10,14 +10,15 @@
 
 下面说下实现原理
 1，时间状态栏透明（这个只能在4.4以后实现）
- /*
+```java
+        /*
         * 4.4以后时间栏状态栏透明
         * */
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
-
+```
 
 2，listview上滑吸顶实现
 其实吸顶的标题是我们事先写好的textview，放在布局顶部,设置为不可见。然后监听listview的滑动，当listview里的标题所对应的position处于最顶部时，让我们放在顶部的 textview显示出来，并替换里面的文字。
