@@ -19,7 +19,7 @@ import android.widget.TextView;
 *
 * */
 public class MainActivity extends Activity {
-    private ListView mPLv;//自定义的listview
+    private ListView mListView;//自定义的listview
     private ImageView mIvHeader;//顶部用来放大的的图片
     private TextView header_title;//顶部用来放大的的图片
 
@@ -27,12 +27,12 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mPLv = (ListView) findViewById(R.id.plv);
+        mListView = (ListView) findViewById(R.id.plv);
         header_title = (TextView) findViewById(R.id.header_title);
         final View headerView = View.inflate(getApplicationContext(), R.layout.list_header, null);
         mIvHeader = (ImageView) headerView.findViewById(R.id.header_iv);
         // 给ListView加头, 要放在setAdapter之前
-        mPLv.addHeaderView(headerView);
+        mListView.addHeaderView(headerView);
 
 
         /*
@@ -45,13 +45,13 @@ public class MainActivity extends Activity {
 
 
         final MyAdapter myAdapter = new MyAdapter();
-        mPLv.setAdapter(myAdapter);
+        mListView.setAdapter(myAdapter);
 
         /*
         * 添加一个滚动 监听
         * 用来实现标题置顶效果
         * */
-        mPLv.setOnScrollListener(new ListView.OnScrollListener() {
+        mListView.setOnScrollListener(new ListView.OnScrollListener() {
 
             //滑动状态监听
             @Override
@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
                     case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL://拖动
                     case AbsListView.OnScrollListener.SCROLL_STATE_FLING://惯性滑动
                         // 显示滑动时屏幕可见条目中离标题栏最近的第一行
-                        int position = mPLv.getFirstVisiblePosition();
+                        int position = mListView.getFirstVisiblePosition();
                         //由于listview添加了一个header，所以position=0代表的是header
                         //这里获取到的position和下面onscroll方法里的firstVisibleItem值一致
                         break;

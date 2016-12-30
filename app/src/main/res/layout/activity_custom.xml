@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="listview吸顶效果"
+                />
+
+            <Button
+                android:id="@+id/button001"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="蜘蛛网雷达网芝麻信用分效果"
+                />
+
+            <Button
+                android:id="@+id/button002"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="二阶贝塞尔曲线演示"
+                />
+
+            <Button
+                android:id="@+id/button003"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="三阶贝塞尔曲线演示"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -31,7 +32,7 @@ public class CustomView1 extends View {
     public CustomView1(Context context, AttributeSet attrs) {
         super(context, attrs);
         mPaint.setColor(Color.BLACK);        // 设置颜色
-        mPaint.setStyle(Paint.Style.FILL);   // 设置样式
+        mPaint.setStyle(Paint.Style.STROKE);   // 设置样式
         mPaint.setTextSize(50f);              // 设置字体大小
     }
 
@@ -46,10 +47,10 @@ public class CustomView1 extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        // 文本(要绘制的内容)
-        String str = "ABCDEFG";
-
-        // 参数分别为 (文本 基线x 基线y 画笔)
-        canvas.drawText(str,200,500,mPaint);
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心(宽高数据在onSizeChanged中获取)
+        Path path = new Path();                     // 创建Path
+        path.lineTo(200, 200);                      // lineTo，第一次从原点开始
+        path.lineTo(200,0);
+        canvas.drawPath(path, mPaint);              // 绘制Path
     }
 }
